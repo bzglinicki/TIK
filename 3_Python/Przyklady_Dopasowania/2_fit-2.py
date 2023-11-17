@@ -1,21 +1,18 @@
 # Technologie informacyjne i komunikacyjne
 # Przykłady - analiza danych doświadczalnych.
-# Przykład 2. Różne dopasowania do tych samych danych doświadczalnych.
+# Przykład 2. Dopasowania różnych krzywych do tych samych danych doświadczalnych.
 
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize
 
-from numpy import array, exp
-from scipy.optimize import curve_fit
-
 
 ###############################################################################
-# Preparowanie danych doświadczalnych.
+# Przygotowanie spreparowanych danych doświadczalnych.
 ###############################################################################
 
-y = array([12, 11, 13, 15, 16, 16, 15, 14, 15, 12, 11, 12, 8, 10, 9, 7, 6])
-x = array(range(len(y)))
+y = np.array([12, 11, 13, 15, 16, 16, 15, 14, 15, 12, 11, 12, 8, 10, 9, 7, 6])
+x = np.array(range(len(y)))
 
 
 ###############################################################################
@@ -33,27 +30,27 @@ def f3(x, a, b, c):
     return a*x**3 + b*x**2 + c
 
 def f4(x, a, b, c):
-    return a*exp(b*x) + c
+    return a*np.exp(b*x) + c
 
 # Dopasowanie krzywej y = f1(x).
-params, _ = curve_fit(f1, x, y)
+params, _ = scipy.optimize.curve_fit(f1, x, y)
 a, b, c = params[0], params[1], params[2]
-yfit1 = a*x**2+b*x+c
+yfit1 = a*x**2 + b*x + c
 
 # Dopasowanie krzywej y = f2(x).
-params, _  = curve_fit(f2, x, y)
+params, _  = scipy.optimize.curve_fit(f2, x, y)
 a, b, c = params[0], params[1], params[2]
-yfit2 = a*x**3+b*x+c
+yfit2 = a*x**3 + b*x + c
 
 # Dopasowanie krzywej y = f3(x).
-params, _  = curve_fit(f3, x, y)
+params, _  = scipy.optimize.curve_fit(f3, x, y)
 a, b, c = params[0], params[1], params[2]
-yfit3 = a*x**3+b*x**2+c
+yfit3 = a*x**3 + b*x**2 + c
 
 # Dopasowanie krzywej y = f4(x).
-params, _  = curve_fit(f4, x, y)
+params, _  = scipy.optimize.curve_fit(f4, x, y)
 a, b, c = params[0], params[1], params[2]
-yfit4 = a*exp(x*b)+c
+yfit4 = a*np.exp(x*b) + c
 
 
 ###############################################################################
