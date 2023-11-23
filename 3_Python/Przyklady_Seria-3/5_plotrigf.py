@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 def plot():
    # Przygotowanie danych
 
-   x = x = np.linspace(-0.9, 0.9, 200)
+   x = np.linspace(-0.9, 0.9, 200)
    y_sin = np.sin(x)
    y_tg = np.tan(x)
 
